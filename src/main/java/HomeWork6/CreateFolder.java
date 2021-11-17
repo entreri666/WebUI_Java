@@ -1,5 +1,6 @@
 package HomeWork6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,12 +19,14 @@ public class CreateFolder extends BaseView {
     @FindBy(xpath = "//*[@type='submit']")
     public WebElement addFolder;
 
+    @Step("Вводим название новой папки")
     public CreateFolder fillFolderName(String nameFolder) {
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.name("name")));
         nameNewFolder.sendKeys(nameFolder);
         return this;
     }
 
+    @Step("Клик на кнопку \"Добавить папку\"")
     public CreateFolder addNewFolder() {
         addFolder.click();
         return this;

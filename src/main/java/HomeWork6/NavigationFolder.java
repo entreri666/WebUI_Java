@@ -1,5 +1,6 @@
 package HomeWork6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,7 @@ public class NavigationFolder extends BaseView {
     @FindBy(xpath = "//*[@id='sideBarContent']/div/nav/div/div/span")
     public WebElement createFolder;
 
+    @Step("Клик на кнопку \"Новая папка\"")
     public NavigationFolder newFolder() {
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='button2__txt']")));
         createFolder.click();

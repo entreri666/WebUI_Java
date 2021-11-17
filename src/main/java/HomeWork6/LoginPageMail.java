@@ -1,5 +1,6 @@
 package HomeWork6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,18 +19,21 @@ public class LoginPageMail extends BaseView{
     @FindBy(xpath = "//*[@type='submit']")
     public WebElement buttonLogin;
 
+    @Step("Заполняем поле логин")
     public LoginPageMail fillLogin (String login){
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@type='submit']")));
         inputLogin.sendKeys(login);
         return this;
     }
 
+    @Step("Заполняем поле пароль")
     public LoginPageMail fillPassword (String password){
         webDriverWait.until(ExpectedConditions.visibilityOf(driver.findElement(By.name("password"))));
         inputPassword.sendKeys(password);
         return this;
     }
 
+    @Step("Клик на кнопку войти")
     public LoginPageMail submitLogin (){
         buttonLogin.click();
         return this;
